@@ -1,0 +1,33 @@
+version: '3'
+services:
+    db:
+        image: mongo:3.4
+    app:
+        image: node:8.1
+        volumes:
+            - ./app:/app
+        ports:
+            - 2424:2424
+        command: bash -c "cd /app && npm i --no-bin-links && node acesso-db" 
+    web:
+        image: nginx:1.13
+        volumes:
+            - ./web:/usr/share/nginx/html/
+        ports:
+            - 8080:80
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
